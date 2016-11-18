@@ -1,15 +1,15 @@
 <ul>
   <% if project.total_time_spent == 0 %>
-  	<li>0<span>Time Spent</span></li>
+    <li>0<span>Time Spent</span></li>
   <% else %>
-  	<li>
-  		<%= ChronicDuration.output(project.total_time_spent, :format => :short, :units => 2) %><span>Time Spent</span>
-  	</li>
+    <li>
+      <%= ChronicDuration.output(project.total_time_spent, :format => :short, :units => 2) %><span>Time Spent</span>
+    </li>
   <% end %>
 
   <% if project.entries %>
     <li>
-    	<%= project.goals.length %><span>Goals</span>
+      <%= project.goals.length %><span>Goals</span>
     </li>
   <% end %>
 

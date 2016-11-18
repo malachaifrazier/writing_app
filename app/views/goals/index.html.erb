@@ -1,26 +1,29 @@
+<div class="card-copy">
+  <% if @project.deadline %>
+    <p>Deadline: <%= @project.deadline.strftime("%A, %b %d") %> </p>
+  <% end %>
+</div>
 
-        <div class="card-copy">
-            <% if @project.deadline %>
-              <p>Deadline: <%= @project.deadline.strftime("%A, %b %d") %> </p>
-            <% end %>
-		</div>
+<div class="card-stats">
+  <%= render partial: "projects/project_stats", locals: {project: @project} %>
+</div>
 
-		<div class="card-stats">
-	        <%= render :partial => "projects/project_stats", locals: {project: @project} %>
-    	</div>
-    	<div class="card-stats">
-	        <ul class="edit-button">
-	        	
-	          	<li ><span class="edit"><%= link_to 'Edit', edit_project_path(@project) %></span></li>
+<div class="card-stats">
+  <ul class="edit-button">
+    <li>
+      <span class="edit">
+        <%= link_to 'Edit', edit_project_path(@project) %>
+      </span>
+    </li>
 
-	          	<li><span class="edit"><%= link_to "New Goal", new_project_goal_path(@project) %></span></li>
-	        </ul>
-	    </div>
-	  
-		<div class="inner-project">
-			<%= render @goals %>
-		</div>
-	
+    <li>
+      <span class="edit">
+        <%= link_to "New Goal", new_project_goal_path(@project) %>
+      </span>
+    </li>
+  </ul>
+</div>
 
-
-	
+<div class="inner-project">
+  <%= render @goals %>
+</div>

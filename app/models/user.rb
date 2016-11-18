@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
     }
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates :email, presence: true, uniqueness: true,
+            format: {
+              with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+            }
 
   def type_is
     if genre_id
@@ -66,11 +70,11 @@ class User < ActiveRecord::Base
 
   def desired_timeframe
     if desired_interval
-      if desired_interval == 1
+      if desired_interval == "1"
         return "day"
-      elsif desired_interval == 7
+      elsif desired_interval == "7"
         return "week"
-      elsif desired_interval == 30
+      elsif desired_interval == "30"
         return "month"
       end
     else

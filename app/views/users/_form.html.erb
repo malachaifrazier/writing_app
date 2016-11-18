@@ -15,19 +15,21 @@
   <div id="target"><%= image_tag @user.avatar.url(:thumb) %>  </div>
   <%= f.file_field :avatar %>
 
-
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
+
   <div class="field">
     <%= f.label :location %>
     <%= f.text_field :location %>
   </div>
+
   <div class="field">
     <%= f.label :tag_list, "What kind of writer are you?" %>
     <%= f.text_field :tag_list %>
@@ -36,5 +38,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-  <%= link_to 'Back', profile_user_path(@user), :remote => true %>
+  <%= link_to 'Back', profile_user_path(@user), remote: true %>
 <% end %>
