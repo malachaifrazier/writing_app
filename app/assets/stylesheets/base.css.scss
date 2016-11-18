@@ -1,25 +1,25 @@
 html, body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .main-title {
-	@extend h3;
-	padding-bottom: 0.25em;
+  @extend h3;
+  padding-bottom: 0.25em;
 }
 
 .quotes {
-	padding: 1em 1em;
+  padding: 1em 1em;
 
-	h3 {
-		font-family: $georgia;
-		font-style: italic;
-	}
+  h3 {
+    font-family: $georgia;
+    font-style: italic;
+  }
 
-	p {
-		font-family: $georgia
-	}
+  p {
+    font-family: $georgia
+  }
 }
 
 .texture {
@@ -28,14 +28,14 @@ html, body {
 }
 
 .texture-normal {
-  @include texture(180deg, lighten(#DDF0EF, 1), darken(#DDF0EF, 10), 67, 1); // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal  
+  @include texture(180deg, lighten(#DDF0EF, 1), darken(#DDF0EF, 10), 67, 1); // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
   float: left;
   height: 5em;
   width: 50%;
 }
 
 .texture-inverted {
-  @include texture(180deg, lighten(#DDF0EF, 1), darken(#DDF0EF, 10), 67, 0); // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal  
+  @include texture(180deg, lighten(#DDF0EF, 1), darken(#DDF0EF, 10), 67, 0); // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
   float: left;
   height: 5em;
   width: 50%;

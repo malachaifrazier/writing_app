@@ -1,3 +1,4 @@
 class GoalType < ActiveRecord::Base
-	has_many :goals
+  has_many :goals
+  validates_uniqueness_of :name
 end

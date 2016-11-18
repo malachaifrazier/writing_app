@@ -1,4 +1,4 @@
-  <%= month_calendar events: projects, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, projects| %>
+  <%= month_calendar attribute: :deadline, events: projects, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, projects| %>
 
     <%= date.strftime("%e") %>
      <div class="calendar-entries tooltip">

@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Write Track.co</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   </head>
@@ -12,16 +12,16 @@
     <div class="wrapper-for-content-outside-of-footer texture">
       <header class="navigation">
         <div class="navigation-wrapper">
-          
-             <%= link_to image_tag("writetrackmark.png", alt: "writetrack"), home_index_path, class: "logo" %><%= image_tag("writetracktext.png", alt: "get on the write track.", class: "secret")  %>
-          
-            <% if current_user %>
-              <a href="" class="navigation-menu-button" id="js-mobile-menu">
-              MENU</a>
-              <%= link_to "Log Out", destroy_user_session_path(@user), :method => :delete, class: "sign-up secret" %>
-            <% else %>
-              <%= link_to "Log in", new_user_session_path, class: "log-in" %> or <%= link_to "Sign up", new_user_registration_path, class: "sign-up" %>
-            <% end %>
+          <%= link_to image_tag("writetrackmark.png", alt: "writetrack"), home_index_path, class: "logo" %><%= image_tag("writetracktext.png", alt: "get on the write track.", class: "secret")  %>
+
+          <% if current_user %>
+            <a href="" class="navigation-menu-button" id="js-mobile-menu">
+            MENU</a>
+            <%= link_to "Log Out", destroy_user_session_path(@user), :method => :delete, class: "sign-up secret" %>
+          <% else %>
+            <%= link_to "Log in", new_user_session_path, class: "log-in" %> or <%= link_to "Sign up", new_user_registration_path, class: "sign-up" %>
+          <% end %>
+
           <div class="nav">
             <ul id="navigation-menu">
               <% if current_user %>
@@ -34,17 +34,14 @@
           </div>
         </div>
       </header>
-    
 
-    
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
 
       <div id="content">
         <%= content_for?(:content) ? yield(:content) : yield %>
-      </div>  
-
+      </div>
 
       <div class="push"></div>
     </div>
@@ -66,9 +63,11 @@
           </ul>
 
           <ul class="footer-social">
-            <li><a href="https://twitter.com/writetrackco">
-              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
-            </a></li>
+            <li>
+              <a href="https://twitter.com/writetrackco">
+                <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
+              </a>
+            </li>
           </ul>
         </div>
 

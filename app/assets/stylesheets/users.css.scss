@@ -1,40 +1,36 @@
 .tab-content {
-	.invisible {
-		color: lighten($light-gray, 10);
-	}
+  .invisible {
+    color: lighten($light-gray, 10);
+  }
 }
 
 .user-tabs {
-
-	
-		background-color: white;
-
+  background-color: white;
 }
 
 .charter {
+  width: 250px;
+  height: 325px;
+  overflow: auto;
 
-	width: 250px;
-	height: 325px;
-	overflow: auto;
-	
-	@include media($large-screen){
-	width: 450px;
-	height: 325px;
-	overflow: none;
-	}
+  @include media($large-screen){
+  width: 450px;
+  height: 325px;
+  overflow: none;
+  }
 }
 
 #user-profile img {
-	float: left;
-	margin-right: 1em;
+  float: left;
+  margin-right: 1em;
 }
 
 #target img {
-	height: 150px;
-	float: none;
+  height: 150px;
+  float: none;
 }
 
 // .myChart {
-// 	width: 400px;
-// 	height: 400px; 
+//  width: 400px;
+//  height: 400px;
 // }

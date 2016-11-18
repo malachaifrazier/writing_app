@@ -6,6 +6,51 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-ProjectType.create([{ name: 'novel'}, {name: 'screenplay'}, {name: 'stage play'}, {name: 'essay'}, {name: 'short story'}, {name: 'poem'}, {name: 'app'}, {name: 'other'}])
-GoalType.create([{name: 'Brainstorming'}, {name: 'researching'}, {name: 'outlining'}, {name: 'writing'}, {name: 'editing'}, {name: 'rewriting'}, {name: 'polishing'}, {name: 'sending'}, {name: 'submitting'}])
-Metric.create([{name: 'words'}, {name: 'pages'}, {name: 'lines'}, {name: 'other'}, {name: 'none'}])
+ProjectType.create(
+  [
+    {name: 'novel'},
+    {name: 'screenplay'},
+    {name: 'stage play'},
+    {name: 'essay'},
+    {name: 'short story'},
+    {name: 'poem'},
+    {name: 'app'},
+    {name: 'other'},
+  ]
+)
+
+GoalType.create(
+  [
+    {name: 'Brainstorming'},
+    {name: 'researching'},
+    {name: 'outlining'},
+    {name: 'writing'},
+    {name: 'editing'},
+    {name: 'rewriting'},
+    {name: 'polishing'},
+    {name: 'sending'},
+    {name: 'submitting'},
+  ]
+)
+
+Metric.create(
+  [
+    {name: 'words'},
+    {name: 'pages'},
+    {name: 'lines'},
+    {name: 'other'},
+    {name: 'none'}
+  ]
+)
+
+user1 = User.where( email: "malachaifrazier@gmail.com").first_or_create
+
+if !user1.persisted?
+  user1 = User.create!(
+    email: "malachaifrazier@gmail.com",
+    password: "password",
+    password_confirmation: "password",
+    name: "Malachai",
+    confirmed_at: Date.today,
+  )
+end

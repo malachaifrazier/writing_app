@@ -1,78 +1,82 @@
 class Project < ActiveRecord::Base
-	has_many :goals, :dependent => :destroy
-	has_many :entries, through: :goals, :dependent => :destroy
-	belongs_to :user
-	belongs_to :project_type
-	accepts_nested_attributes_for :goals
-	accepts_nested_attributes_for :entries
-	include AASM
-	extend SimpleCalendar
-  	has_calendar :attribute => :deadline
+  has_many :goals, dependent: :destroy
+  has_many :entries, through: :goals, dependent: :destroy
 
+  belongs_to :user
+  belongs_to :project_type
 
-	def type_is
-			project_type = ProjectType.find_by id: project_type_id
-			project_type.name
-	end
+  accepts_nested_attributes_for :goals
+  accepts_nested_attributes_for :entries
 
-	def most_recent_entry
-		if !entries.empty?
-			entries.order('created_at').last
-		end
-	end
+  validates_uniqueness_of :name, scope: [:user_id, :project_type_id]
 
-	def most_recent_goal
-		most_recently_created_goal = goals.order('created_at').last
-		if !entries.empty?
-			most_recent_entry = entries.order('created_at').last
+  include AASM
+  # extend SimpleCalendar
+  #   has_calendar attribute: :deadline
 
-			if most_recent_entry.created_at > most_recently_created_goal.created_at
-				latest_goal = most_recent_entry.goal
-			else
-				latest_goal = most_recently_created_goal
-			end
-		end
-		latest_goal
-	end
+  def type_is
+    project_type = ProjectType.find_by id: project_type_id
+    project_type.name
+  end
 
-	def total_time_spent
-		if entries
-		 entries.sum("duration")
-		end
-	end
+  def most_recent_entry
+    if !entries.empty?
+      entries.order('created_at').last
+    end
+  end
 
-	def spark_line
-		last_week = entries.order('created_at').last(7)
-		array = []
-		last_week.map do |entry|
-			array << ChronicDuration.parse(entry.duration)
-		end
-		array.join(', ')
-	end
+  def most_recent_goal
+    most_recently_created_goal = goals.order('created_at').last
+    if !entries.empty?
+      most_recent_entry = entries.order('created_at').last
 
-	aasm do
-		state :active, :initial => true
-		state :paused
-		state :completed
-		state :archived
+      if most_recent_entry.created_at > most_recently_created_goal.created_at
+        latest_goal = most_recent_entry.goal
+      else
+        latest_goal = most_recently_created_goal
+      end
+    end
+    latest_goal
+  end
 
-		# event :deadline_passed do
-		# 	transitions :from => [:overdue, :active], :to => :overdue
-		# end
+  def total_time_spent
+    if entries
+     entries.sum("duration")
+    end
+  end
 
-		# event :deadline_future do
-		# 	transitions :from => [:overdue, :archive, :active], :to => :active
-		# end
+  def spark_line
+    last_week = entries.order('created_at').last(7)
+    array = []
+    last_week.map do |entry|
+      array << ChronicDuration.parse(entry.duration)
+    end
+    array.join(', ')
+  end
 
-	end
+  aasm do
+    state :active, :initial => true
+    state :paused
+    state :completed
+    state :archived
 
-	# def deadline_check
-	# 	if deadline
-	# 		if deadline > Date.today
-	# 			deadline_passed
-	# 		elsif deadline < Date.today
-	# 			deadline_future
-	# 		end
-	# 	end
-	# end
+    # event :deadline_passed do
+    #   transitions :from => [:overdue, :active], :to => :overdue
+    # end
+
+    # event :deadline_future do
+    #   transitions :from => [:overdue, :archive, :active], :to => :active
+    # end
+
+  end
+
+  # def deadline_check
+  #   if deadline
+  #     if deadline > Date.today
+  #       deadline_passed
+  #     elsif deadline < Date.today
+  #       deadline_future
+  #     end
+  #   end
+  # end
 end

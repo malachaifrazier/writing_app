@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :location
       t.integer :genre_id
       t.integer :desired_amount
-      t.string :desired_interval
+      t.integer :desired_interval
 
       t.timestamps
     end

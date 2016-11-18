@@ -1,24 +1,24 @@
-// LAYOUT 
+// LAYOUT
 
 .write-button {
-	@include button;
-	a {
-		color: white;
-	}
+  @include button;
+  a {
+    color: white;
+  }
 }
 .button {
-	@extend .write-button;
+  @extend .write-button;
 }
 
 .goal-button {
-	@extend .write-button;
-	float: right;
+  @extend .write-button;
+  float: right;
 }
 
 .edit {
-	@include button(simple, $base-background-color);
+  @include button(simple, $base-background-color);
 
-       	
+
         //padding-top: 0.5em;
         //margin-right: 0.5em;
         //display: inline-block;
@@ -33,268 +33,268 @@
         // }
     }
 
-   
-.write-now {
-	@include button(pill, tint($blue, 30%));
-	margin-top: 3px;
-	float: right;
 
-	a {
-		color: white;
-	}
+.write-now {
+  @include button(pill, tint($blue, 30%));
+  margin-top: 3px;
+  float: right;
+
+  a {
+    color: white;
+  }
 }
 
 .small-write {
-	font-size: .82em;
-	padding-right: 4px;
+  font-size: .82em;
+  padding-right: 4px;
 }
 
 .project-button {
-	@include button(simple, $base-background-color);
-	margin-bottom: 9px;
+  @include button(simple, $base-background-color);
+  margin-bottom: 9px;
 }
 
 .main {
-	
+
 }
 
 .inner-project {
-	padding: 0.3em;
-	background: tint($project-border, 30%);
-	border: 3px solid white;
-	border-radius: 5px;
+  padding: 0.3em;
+  background: tint($project-border, 30%);
+  border: 3px solid white;
+  border-radius: 5px;
 }
 
 #content {
-	@include outer-container;
+  @include outer-container;
 }
 
 .article {
 
     @include media($large-screen) {
-		@include span-columns(8);
-	
-	}
+    @include span-columns(8);
+
+  }
 }
 
 .sign-up-container{
-	$hero-image: "http://i.imgur.com/8I9wUUd.jpg";
-	@include background-image(url($hero-image));
+  $hero-image: "http://i.imgur.com/8I9wUUd.jpg";
+  @include background-image(url($hero-image));
 }
 
 .sign-up-hero {
-	
-	// $hero-background-top: darken($base-accent-color, 90); 
- // 	$hero-background-bottom: adjust-hue($hero-background-top, -70);
- // 	$hero-color: $blue;
- //  	$gradient-angle: 10deg;
-	
-	text-align: center;
+
+  // $hero-background-top: darken($base-accent-color, 90);
+ //   $hero-background-bottom: adjust-hue($hero-background-top, -70);
+ //   $hero-color: $blue;
+ //   $gradient-angle: 10deg;
+
+  text-align: center;
 
 
-	h1 {
-		margin-top: 1em;
-		background: none;
-	}
+  h1 {
+    margin-top: 1em;
+    background: none;
+  }
 
-	h4 {
-		color: shade($blue, 20%);
-		margin-bottom: 2em;
-		text-shadow: 2px 2px rgba(255,255,255,0.4);
-		font-size: $base-font-size * 1.1;
+  h4 {
+    color: shade($blue, 20%);
+    margin-bottom: 2em;
+    text-shadow: 2px 2px rgba(255,255,255,0.4);
+    font-size: $base-font-size * 1.1;
 
-		@include media($large-screen) {
-			font-size: $base-font-size * 1.6;
-		}
-	}
+    @include media($large-screen) {
+      font-size: $base-font-size * 1.6;
+    }
+  }
 
 }
 
 .sign-up-logo {
-	margin: 2em;
-	max-height: 175px
+  margin: 2em;
+  max-height: 175px
 }
 
 .home {
-	
+
 }
 
 // menu - nav bar extensions.
 
 .log-in {
-	@extend .sign-up;
-	margin-left: 1em;
+  @extend .sign-up;
+  margin-left: 1em;
 }
 
 .stats {
-	  @include media($large-screen) {
-		@include span-columns(4);
-	}
+    @include media($large-screen) {
+    @include span-columns(4);
+  }
 
 
 }
 .sign-up-side {
-		margin: 1em 0;
+    margin: 1em 0;
 
-		fieldset {
-			border-radius: 6px;
-			background-color: rgba(255,255,255,0.7);
+    fieldset {
+      border-radius: 6px;
+      background-color: rgba(255,255,255,0.7);
 
-			h2 {
-				padding-bottom: 0.6em;
-			}
-		}
+      h2 {
+        padding-bottom: 0.6em;
+      }
+    }
 
-		.devise-links {
-			margin-top: 1em;
-			font-size: 0.8em;
-		}
-	}
+    .devise-links {
+      margin-top: 1em;
+      font-size: 0.8em;
+    }
+  }
 
 .notice {
-	@extend %flash-alert;
+  @extend %flash-alert;
 }
 
 .alert {
-	@extend %flash-alert;
+  @extend %flash-alert;
 }
 
 .error {
-	@extend %flash-error;
+  @extend %flash-error;
 }
 
 .success {
-	@extend %flash-success;
+  @extend %flash-success;
 }
 
 .clock {
-			width: 100%; 
-			
-			@include media($large-screen){
-				padding-left: 20em;
-			}
-		}
+      width: 100%;
+
+      @include media($large-screen){
+        padding-left: 20em;
+      }
+    }
 .duration {
-			display: none;
-		}
+      display: none;
+    }
 .timer-buttons {
-	font-size: .7em;
-	text-align: center;
+  font-size: .7em;
+  text-align: center;
 }
 
 // fieldset {
-// 	 @include media($large-screen) {
-// 		@include span-columns(8);
-	
-// 	}
+//   @include media($large-screen) {
+//    @include span-columns(8);
+
+//  }
 // }
 
 .user-field-hide {
-	
-	.user-writing-settings {
-		display: inline;
 
-		input {
-			width: 3em;
-			display: inline;
-		}
+  .user-writing-settings {
+    display: inline;
 
-		select {
-			display: inline;
-		}
+    input {
+      width: 3em;
+      display: inline;
+    }
 
-		label {
-			display: inline;
-		}
-	}
+    select {
+      display: inline;
+    }
+
+    label {
+      display: inline;
+    }
+  }
 
 }
 
 .goal-field-hide,
 .goal-field {
 
-	fieldset{
-		border-radius: 6px;
-		margin-top: 1em;
-		background-color: $light-gray;
-		@include animation-name(scale, slide);
-		padding: 15px 24px;
+  fieldset{
+    border-radius: 6px;
+    margin-top: 1em;
+    background-color: $light-gray;
+    @include animation-name(scale, slide);
+    padding: 15px 24px;
 
-	}
-	.goal-settings {
-		display: inline;
-		line-height: 3em;
+  }
+  .goal-settings {
+    display: inline;
+    line-height: 3em;
 
-		input {
-			width: 5em;
-			display: inline;
-		}
+    input {
+      width: 5em;
+      display: inline;
+    }
 
-		select {
-			display: inline;
-		}
-			#goal_metric_name {
-				
-					width: 10em;
-				
-			}
-	}
+    select {
+      display: inline;
+    }
+      #goal_metric_name {
+
+          width: 10em;
+
+      }
+  }
 }
 .metric-check {
-	display: inline;
+  display: inline;
 
-	input {
-		display: inline;
-	}
-	label {
-		display: inline;
-	}
+  input {
+    display: inline;
+  }
+  label {
+    display: inline;
+  }
 
-	select {
-			display: inline;
-		}
+  select {
+      display: inline;
+    }
 }
 
 .goal-type-draft-number {
-	display: inline;
+  display: inline;
 
-	input {
-		display: inline;
-		width: 3em;
-	}
-	
-	select {
-			display: inline;
-		}
+  input {
+    display: inline;
+    width: 3em;
+  }
+
+  select {
+      display: inline;
+    }
 }
 .draft-number{
-	display: inline;
+  display: inline;
 
-		input {
-			display: inline;
-			width: 4em;
-		}
+    input {
+      display: inline;
+      width: 4em;
+    }
 
-		label {
-			display: inline;
-		}
-		select {
-			display: inline;
-		}
-	}
+    label {
+      display: inline;
+    }
+    select {
+      display: inline;
+    }
+  }
 #conditional-draft-number {
-	margin-left: 1em;
-	display: none;
+  margin-left: 1em;
+  display: none;
 }
 
 .tagsinput {
-	border-radius: $form-border-radius;
-	margin-bottom: 1.2em;
+  border-radius: $form-border-radius;
+  margin-bottom: 1.2em;
 
 
-  	// &:focus {
-	  //   border-color: $form-border-color-focus;
-	  //   // box-shadow: $form-box-shadow-focus;
-    
+    // &:focus {
+    //   border-color: $form-border-color-focus;
+    //   // box-shadow: $form-box-shadow-focus;
+
   // }
 }

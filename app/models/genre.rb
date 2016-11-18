@@ -1,3 +1,4 @@
 class Genre < ActiveRecord::Base
-	has_many :users
+  # TODO: This table does not exist!
+  has_many :users
 end
