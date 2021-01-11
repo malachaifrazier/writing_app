@@ -172,7 +172,7 @@ GEM
     raindrops (0.17.0)
     rake (11.3.0)
     rdoc (4.3.0)
-    redcarpet (3.3.4)
+    redcarpet (3.5.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rspec (3.5.0)
